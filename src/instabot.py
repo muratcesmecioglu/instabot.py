@@ -762,7 +762,39 @@ class InstaBot:
                     return 0
             else:
                 return 0
+            
+    def get_media_id_user_feed (self,username):
+        if (self.login_status):
+            now_time = datetime.datetime.now()
+            if self.login_status == 1:
+                url_tag = 'https://www.instagram.com/%s/'%(username)
+                #try:
+                r = self.s.get(url_tag)
+                text = r.content
+                finder_text_start = ('<script type="text/javascript">'
+                                         'window._sharedData = ')
+                finder_text_start_len = len(finder_text_start)-1
+                finder_text_end = ';</script>'
 
+                all_data_start = text.find(finder_text_start)
+                all_data_end = text.find(finder_text_end, all_data_start + 1)
+                json_str = text[(all_data_start + finder_text_start_len + 1) \
+                                   : all_data_end]
+                all_data = json.loads(json_str)
+
+                nodelar = all_data['entry_data']['ProfilePage'][0]['user']['media']['nodes']
+                the_media = [];
+                for node in nodelar:
+                    the_media.append(node['id'])
+
+                return the_media;
+
+                except:
+                    self.write_log("Except on get_media!")
+                    time.sleep(20)
+                    return 0
+            else:
+                return 0
 
     def write_log(self, log_text):
         """ Write log by print() or logger """
