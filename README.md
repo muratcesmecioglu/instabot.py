@@ -229,7 +229,7 @@ print(ui.followers)
 
 Get last photo id list by username:
 ```python
-medias = bot.get_media_id_user_feed("muratcsmecioglu")
+medias = bot.get_media_id_user_feed("muratcesmecioglu")
 print(medias)
 ```
 
