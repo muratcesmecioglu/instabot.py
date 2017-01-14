@@ -227,6 +227,12 @@ ui.get_followers(limit=10)
 print(ui.followers)
 ```
 
+Get last photo id list by username:
+```python
+medias = bot.get_media_id_user_feed("muratcsmecioglu")
+print(medias)
+```
+
 ## Community
 
 - [Telegram Group](https://telegram.me/joinchat/DYKH-wdXpfmQCdcJLaV48Q)
