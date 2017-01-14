@@ -41,6 +41,7 @@ while True:
     #print("#### MODE 3 = MODIFIED MODE : UNFOLLOW PEOPLE WHO DON'T FOLLOW BACK BASED ON RECENT FEED ONLY")
     #print("##### MODE 4 = MODIFIED MODE : FOLLOW PEOPLE BASED ON RECENT FEED ONLY")
     #print("###### MODE 5 = MODIFIED MODE : JUST UNFOLLOW EVERYBODY, EITHER YOUR FOLLOWER OR NOT")
+    #print("####### MODE 6 = MODIFIED MODE : JUST LIKE LAST x PHOTOS ON SPECIFIED USERS")
 
     ################################
            ##  WARNING   ###
@@ -89,6 +90,24 @@ while True:
     elif mode == 5 :
         bot.bot_mode=2
         unfollow_protocol(bot)
+        
+    elif mode == 7 :
+        last_x_photo = 3;
+        userlist = ['username1','username2','username3']
+        for user in userlist:
+            print("Now %s's photos are liking" %(user));
+            medias = bot.get_media_id_user_feed(user)
+            k = 1;
+            for media in medias:
+                bot.like(media)
+                print("%s of %s (ID: %s)" %(k, last_x_photo, media))
+                k = k + 1;
+                time.sleep(10);
+                if k == last_x_photo:
+                    break
+            print("Next user\n---------")
+        print("All photos liked. Waiting 5 minutes...")
+        time.sleep(300);
 
     else :
         print ("Wrong mode!")
