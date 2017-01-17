@@ -91,7 +91,7 @@ while True:
         bot.bot_mode=2
         unfollow_protocol(bot)
         
-    elif mode == 7 :
+    elif mode == 6 :
         last_x_photo = 3;
         userlist = ['username1','username2','username3']
         for user in userlist:
