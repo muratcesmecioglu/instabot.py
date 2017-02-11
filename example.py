@@ -97,10 +97,10 @@ while True:
         for user in userlist:
             print("Now %s's photos are liking" %(user));
             medias = bot.get_media_id_user_feed(user)
-            k = 1;
+            k = 0;
             for media in medias:
                 bot.like(media)
-                print("%s of %s (ID: %s)" %(k, last_x_photo, media))
+                print("%s of %s (ID: %s)" %(k+1, last_x_photo, media))
                 k = k + 1;
                 time.sleep(10);
                 if k == last_x_photo:
