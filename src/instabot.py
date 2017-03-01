@@ -744,13 +744,11 @@ class InstaBot:
                                          'window._sharedData = ')
                     finder_text_start_len = len(finder_text_start)-1
                     finder_text_end = ';</script>'
-
-                    all_data_start = text.find(finder_text_start)
-                    all_data_end = text.find(finder_text_end, all_data_start + 1)
+                    all_data_start = text.find(finder_text_start.encode('utf-8'))
+                    all_data_end = text.find(finder_text_end.encode('utf-8'), all_data_start + 1)
                     json_str = text[(all_data_start + finder_text_start_len + 1) \
                                    : all_data_end]
-                    all_data = json.loads(json_str)
-
+                    all_data = json.loads(json_str.decode('utf-8'))
                     self.media_on_feed = list(all_data['entry_data']['FeedPage'][0]\
                                             ['feed']['media']['nodes'])
                     log_string="Media in recent feed = %i"%(len(self.media_on_feed))
@@ -758,7 +756,7 @@ class InstaBot:
                 except:
                     self.media_on_feed = []
                     self.write_log("Except on get_media!")
-                    time.sleep(20)
+                    time.sleep(10)
                     return 0
             else:
                 return 0
