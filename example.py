@@ -102,9 +102,9 @@ while True:
                 bot.like(media)
                 print("%s of %s (ID: %s)" %(k+1, last_x_photo, media))
                 k = k + 1;
-                time.sleep(10);
                 if k == last_x_photo:
                     break
+                time.sleep(10);
             print("Next user\n---------")
         print("All photos liked. Waiting 5 minutes...")
         time.sleep(300);
