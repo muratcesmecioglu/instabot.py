@@ -58,6 +58,7 @@ while True:
     #print("#### MODE 3 = MODIFIED MODE : UNFOLLOW USERS WHO DON'T FOLLOW YOU BASED ON RECENT FEED")
     #print("##### MODE 4 = MODIFIED MODE : FOLLOW USERS BASED ON RECENT FEED ONLY")
     #print("###### MODE 5 = MODIFIED MODE : JUST UNFOLLOW EVERYBODY, EITHER YOUR FOLLOWER OR NOT")
+    #print("####### MODE 6 = MODIFIED MODE : LIKE LAST X PHOTOS OF USER(s)")
 
     ################################
     ##  WARNING   ###
