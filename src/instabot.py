@@ -780,10 +780,10 @@ class InstaBot:
                                        : all_data_end]
                     all_data = json.loads(json_str)
 
-                    nodelar = all_data['entry_data']['ProfilePage'][0]['user']['media']['nodes']
+                    nodelar = all_data['entry_data']['ProfilePage'][0]['graphql']['user']['edge_owner_to_timeline_media']['edges']
                     the_media = [];
                     for node in nodelar:
-                        the_media.append(node['id'])
+                        the_media.append(node['node']['id'])
 
                     return the_media;
 
